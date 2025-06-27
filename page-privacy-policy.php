@@ -112,7 +112,6 @@ get_header();
                             wp_reset_postdata();
                         }
                          ?>
-                         </section>
                          
                          <style>
                          .legal-section {
@@ -327,7 +326,7 @@ get_header();
                             Phone: <?php echo esc_html(get_theme_mod('footer_phone', '+254 738 788010')); ?></p>
                             <?php endif; ?>
                         </section>
-                        <?php endif; ?>
+                        <?php // endif; ?> <!-- This endif was identified as potentially orphaned -->
                     </div>
                 </div>
 
