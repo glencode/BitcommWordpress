@@ -81,7 +81,7 @@ get_header();
                             ?>
                         </section>
                         <?php
-                        endif; // End of !$use_main_editor check
+                        // endif; // End of !$use_main_editor check -- THIS IS PREMATURE if all static content is fallback
                         
                         // Add reusable legal clauses
                         $legal_clauses = new WP_Query(array(
@@ -112,7 +112,6 @@ get_header();
                             wp_reset_postdata();
                         }
                          ?>
-                         </section>
                          
                          <style>
                          .legal-section {
@@ -328,6 +327,7 @@ get_header();
                             <?php endif; ?>
                         </section>
                         <?php endif; ?>
+                    <?php } // Closing brace for the main 'else' block ?>
                     </div>
                 </div>
 

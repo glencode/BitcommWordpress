@@ -239,6 +239,7 @@ get_header();
                             <?php endif; ?>
                         </section>
                         <?php endif; ?>
+                    <?php } // Closing brace for the main 'else' block ?>
                     </div>
                 </div>
 
