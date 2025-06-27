@@ -238,7 +238,8 @@ get_header();
                             Phone: <?php echo esc_html(get_theme_mod('footer_phone', '+254 738 788010')); ?></p>
                             <?php endif; ?>
                         </section>
-                        <?php endif; ?>
+                        <?php endif; // End of if (!$use_main_editor) ?>
+                    <?php } // Closing brace for the main 'else' block (fallback for if CPTs not found) ?>
                     </div>
                 </div>
 
