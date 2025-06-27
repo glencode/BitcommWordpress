@@ -81,7 +81,7 @@ get_header();
                             ?>
                         </section>
                         <?php
-                        endif; // End of !$use_main_editor check
+                        // endif; // THIS PREMATURE ENDIF IS REMOVED to extend the if (!$use_main_editor) block
                         
                         // Add reusable legal clauses
                         $legal_clauses = new WP_Query(array(
@@ -326,7 +326,11 @@ get_header();
                             Phone: <?php echo esc_html(get_theme_mod('footer_phone', '+254 738 788010')); ?></p>
                             <?php endif; ?>
                         </section>
+
+                        <?php endif; // This is the endif for if (!$use_main_editor) which will be restructured ?>
+                    <?php } // Closing brace for the main 'else' block (fallback for if CPTs not found) ?>
                         <?php // endif; ?> <!-- This endif was identified as potentially orphaned -->
+
                     </div>
                 </div>
 
