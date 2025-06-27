@@ -1,0 +1,128 @@
+/**
+ * Layout Fixes - Specifically addressing spacing and width issues
+ */
+
+/* Global fixes to prevent unwanted whitespace */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Site header adjustments */
+.site-header {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fix spacing between navbar and hero */
+#primary {
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure hero section has no vertical space on the right */
+#hero-section {
+    width: 100%;
+    margin-right: 0;
+    padding-right: 0;
+    margin-left: 0;
+    padding-left: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Remove any margins from main layout elements */
+.site-main {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Section spacing adjustments */
+section {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+}
+
+/* Container fixes to ensure proper width */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+
+/* Fix for rows to prevent horizontal overflow */
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+    width: calc(100% + 30px);
+    box-sizing: border-box;
+}
+
+/* Hero slider specific fixes */
+.hero-slider {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Make individual slides fit perfectly */
+.hero-slide-bb {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fix navbar to ensure no whitespace */
+.navbar {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fix mobile QAP button alignment */
+@media (max-width: 768px) {
+    .quick-action-card .quick-action-title {
+        width: 100% !important;
+        padding: 8px 5px !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Prevent hover effects on touch devices */
+    .floating {
+        animation: none !important;
+    }
+    
+    /* Use active state for mobile interactions */
+    .quick-action-card:active,
+    .card:active {
+        opacity: 0.8;
+        transition: opacity 0.2s ease;
+    }
+    
+    /* Fix hero section height on mobile */
+    #hero-section {
+        height: 100vh;
+        min-height: 100vh;
+        max-height: 100vh;
+    }
+}

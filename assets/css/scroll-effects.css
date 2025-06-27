@@ -1,0 +1,178 @@
+/**
+ * Scroll Effects & Animations
+ * 
+ * This stylesheet contains all animation and scroll-related effects
+ * for the IT Company website.
+ */
+
+/* Base Animation Classes */
+.fade-in-scroll,
+.slide-in-left,
+.slide-in-right,
+.scale-in-scroll,
+.stagger-in > * {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+/* Animation Classes - Visible State */
+.fade-in-scroll.visible {
+    opacity: 1;
+}
+
+.slide-in-left {
+    transform: translateX(-50px);
+}
+
+.slide-in-left.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.slide-in-right {
+    transform: translateX(50px);
+}
+
+.slide-in-right.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.scale-in-scroll {
+    transform: scale(0.9);
+}
+
+.scale-in-scroll.visible {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Staggered Animation for Lists */
+.stagger-in > *.visible {
+    opacity: 1;
+}
+
+/* Floating Animation */
+.floating {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+    0% { transform: translate(0, 0px); }
+    50% { transform: translate(0, -10px); }
+    100% { transform: translate(0, 0px); }
+}
+
+/* Parallax Effects */
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gradient Backgrounds */
+.gradient-bg {
+    background: linear-gradient(135deg, #4a00e0, #8e2de2);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    position: relative;
+}
+
+.bg-gradient-light {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Transparent to Solid Navbar */
+.navbar-transparent {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-solid {
+    background-color: #2c0f57 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+    transition: all 0.3s ease-in-out;
+}
+
+/* QAP Specific Animations */
+.quick-action-card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.quick-action-card:active {
+    transform: translateY(0);
+    transition: transform 0.1s ease;
+}
+
+/* Media Queries for Responsive Animations */
+@media (max-width: 768px) {
+    .fade-in-scroll,
+    .slide-in-left,
+    .slide-in-right,
+    .scale-in-scroll {
+        transition: all 0.6s ease;
+    }
+    
+    .floating {
+        animation-duration: 2s;
+    }
+    
+    /* Adjust animation distance for mobile */
+    .slide-in-left {
+        transform: translateX(-20px);
+    }
+    
+    .slide-in-right {
+        transform: translateX(20px);
+    }
+    
+    /* Fix hover issues on touch devices */
+    .quick-action-card:hover,
+    .card:hover,
+    .service-icon:hover {
+        transform: none !important;
+    }
+    
+    /* Use active state for touch interaction */
+    .quick-action-card:active .quick-action-title,
+    .card:active {
+        transform: scale(0.95) !important;
+        transition: transform 0.1s ease-in-out !important;
+    }
+}
+
+/* Tablet Adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .parallax-bg {
+        background-attachment: scroll;
+    }
+}
+
+/* Better Accessibility - Reduce Motion */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-scroll,
+    .slide-in-left,
+    .slide-in-right,
+    .scale-in-scroll,
+    .floating,
+    .gradient-bg,
+    .stagger-in > * {
+        transition-duration: 0.1s;
+        animation-duration: 0.1s;
+    }
+}

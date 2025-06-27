@@ -1,0 +1,1316 @@
+/*!
+Theme Name: itsulu-custom
+Theme URI: http://glen.me/
+Author: Glen Code
+Author URI: http://glen.me/
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: itsulu-custom
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, full-width-template, editor-style,  sticky-post, theme-options
+This theme is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+/*--------------------------------------------------------------
+------------------------------------------- */
+
+
+:root {
+  --primary: #2C1D6D;
+  --primary-hover: #3d2e8f;
+  --dark-bg: #1a1a1a;
+  --light-bg: #f8f9fa;
+  --text-light: #ffffff;
+  --text-dark: #212529;
+  --gray: #6c757d;
+  --transition-speed: 0.3s;
+}
+
+.service-cta-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+/* RESET & BASE */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+a.btn:hover {
+  background-color: #5034cd !important;
+  color: #272626 !important;
+}
+
+
+
+.navbar {
+  background: transparent; 
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+  padding-top: 1rem;
+}
+
+/* Remove left padding from the navbar's direct container to allow logo to move left */
+.navbar > .container {
+  padding-left: 0; /* You can use a small value like 5px or 10px if 0 is too flush */
+}
+
+.navbar-brand img {
+  max-height: 50px;
+}
+
+.navbar-brand {
+  padding-left: 0; 
+  margin-left: 0px; /* Increased negative margin to push further left */
+}
+
+.navbar-nav .nav-link {
+  color: var(--text-light);
+  margin-right: 1rem;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--primary);
+}
+
+/* Enable dropdown on hover */
+.navbar-nav .dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  background: linear-gradient(to right, #2C1D6D, #3D2E8F);
+  color: #000 !important;
+}
+
+
+/* Smooth dropdown animation */
+.dropdown-menu {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Navbar integration with hero */
+.navbar-dark {
+    background: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-dark:not(.bg-dark-scrolled) {
+    box-shadow: none;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus {
+    color: #fff !important;
+}
+
+.navbar-dark .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Hero content positioning */
+.hero-content {
+    padding-top: 116px; /* Match the margin-top offset */
+    z-index: 2;
+}
+
+/* Add overlay to hero slides */
+.hero-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+
+.header-button .btn-primary {
+  background-color: #3D2E8F;
+  border-color: #3D2E8F;
+  color: var(--text-light);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  transition: all var(--transition-speed);
+}
+
+.header-button .btn-primary:hover {
+  background-color: #5A45B3;
+  border-color: #5A45B3;
+}
+
+/* HERO SECTION */
+.hero-section {
+    position: relative;
+    height: 105vh; /* Slightly taller to accommodate content */
+    overflow: hidden;
+    margin-top: -116px; /* Offset for header height */
+}
+
+.hero-container {
+    display: flex;
+    height: 100%;
+    align-items: stretch;
+}
+
+.hero-slider-column {
+    flex: 0 0 70%; /* Increased width for left side */
+    position: relative;
+    height: 100%;
+}
+
+.hero-slider-column .hero-slider,
+.hero-slider-column .hero-slide {
+    height: 100%;
+    width: 100%;
+}
+
+.hero-slide {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.hero-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    color: #fff;
+    max-width: 700px;
+    margin-left: 8%; /* Pulled more to the left */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem; /* Larger title */
+    margin-bottom: 1.5rem;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.hero-auxiliary-content {
+    flex: 0 0 30%; /* Reduced width for right side */
+    padding: 2rem; /* Reduced padding */
+    height: 100%;
+    background: rgba(44, 29, 109, 0.95);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 116px; /* Match the header offset */
+}
+
+.quick-actions {
+    margin-top: 1.5rem;
+}
+
+.quick-action-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    height: 100%;
+    font-size: 0.9rem; /* Slightly smaller font */
+    padding: 0.75rem; /* Adjusted padding */
+}
+
+.quick-action-btn i {
+    font-size: 1.2rem; /* Slightly smaller icons */
+    margin-bottom: 0.5rem;
+}
+
+.quick-action-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.hero-auxiliary-content h3 {
+    font-size: 1.5rem; /* Smaller heading */
+    margin-bottom: 1rem;
+}
+
+.hero-auxiliary-content p {
+    font-size: 0.95rem; /* Smaller text */
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.hero-auxiliary-content .btn-primary {
+    background: rgb(104, 11, 234);
+    border: none;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.hero-auxiliary-content .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(104, 11, 234, 0.3);
+}
+
+.usp-points {
+    color: #fff;
+    margin: 1.5rem 0;
+}
+
+.usp-item {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.usp-item i {
+    color: #4CAF50;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 35%; /* Adjusted to align with content */
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 2rem;
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* Value Proposition Section */
+.value-proposition {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.value-card {
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.value-icon {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: rgba(44, 29, 109, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.value-icon i {
+  color: #2C1D6D;
+}
+
+.section-title {
+  position: relative;
+  color: #2C1D6D;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.section-title:after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #3D2E8F;
+  margin: 15px auto 0;
+}
+
+
+.hero h1 {
+  font-size: 2.5rem; /* Adjust the font size to fit better */
+  margin-bottom: 10px; /* Reduced margin for a more compact look */
+}
+
+.hero p {
+  font-size: 1rem; /* Slightly smaller font size for the paragraph */
+  margin-bottom: 10px; /* Reduced margin */
+}
+
+
+/* UTILITY */
+.section {
+  padding: 60px 0;
+}
+
+.btn {
+  transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--text-light);
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+/* /******************************************************************************* */
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* Services Page Styling */
+.itsulu-services-page .card {
+  border: 1px solid #e3e3e3;
+  transition: transform 0.3s ease-in-out;
+}
+
+.itsulu-services-page .card:hover {
+  transform: translateY(-5px);
+}
+
+.itsulu-services-page .card-img-top {
+  object-fit: cover;
+  height: 200px; /* Limit image height */
+}
+
+.itsulu-services-page .card-body {
+  padding: 20px;
+}
+
+.itsulu-services-page h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.itsulu-services-page .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.itsulu-services-page .card-text {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.itsulu-services-page .btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+}
+
+.itsulu-services-page .btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+
+/* About Us Page Styles */
+
+/* Hero Section */
+.about-hero {
+  background-color: #f3f5f8;
+  padding: 60px 0;
+  margin-bottom: 50px;
+}
+
+.about-hero h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.about-hero p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #505d6b;
+  max-width: 800px;
+}
+
+/* Container */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Section Styles*/
+section {
+  margin-bottom: 70px;
+}
+
+section h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  color: #333;
+}
+
+/* Timeline Section */
+.timeline-section {
+  background-color: #7f4da0;
+  color: #fff;
+  padding: 60px 0;
+  position: relative;
+}
+
+.timeline-section h2 {
+  color: #fff;
+}
+
+.timeline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+.timeline:before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  bottom: 30px;
+  left: 50%;
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  width: calc(50% - 40px);
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+  margin-right: 40px;
+}
+
+.timeline-item:nth-child(even) {
+  margin-left: 40px;
+}
+
+.timeline-year {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #3ec3e9;
+}
+
+.timeline-content {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.timeline-content p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Mission Vision Section */
+.mission-vision-section {
+  padding: 50px 0;
+  background-color: #fff;
+}
+
+.mission-vision-section .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.mission-block, .vision-block {
+  width: calc(50% - 30px);
+  padding: 30px;
+  border-radius: 8px;
+  background-color: #f3f5f8;
+}
+
+.mission-block h2, .vision-block h2 {
+  font-size: 28px;
+  text-align: left;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.mission-content, .vision-content {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #505d6b;
+}
+
+/* Certification Section */
+.certification-section {
+  padding: 50px 0;
+  background-color: #fff;
+}
+
+.certification-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #505d6b;
+}
+
+.certification-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.certification-logo {
+  max-width: 150px;
+}
+
+.certification-logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Awards Section */
+.awards-section {
+  padding: 50px 0;
+  background-color: #f3f5f8;
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.award-item {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  transition: transform 0.3s ease;
+}
+
+.award-item:hover {
+  transform: translateY(-5px);
+}
+
+.award-icon {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.award-icon img {
+  max-width: 60px;
+  height: auto;
+}
+
+.award-content h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.award-content blockquote {
+  margin: 0;
+  padding-left: 20px;
+  border-left: 3px solid #3ec3e9;
+  font-style: italic;
+  color: #505d6b;
+}
+
+/* Facilities Section */
+.facilities-section {
+  padding: 50px 0;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin: 0 20px 70px;
+}
+
+.facilities-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.facilities-column {
+  width: 45%;
+}
+
+.facilities-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.facilities-column li {
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #505d6b;
+}
+
+.facilities-column li:before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #3ec3e9;
+  font-weight: bold;
+}
+
+/* Team Section */
+.team-section {
+  padding: 50px 0;
+  background-color: #f3f5f8;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.team-member {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.team-member-image {
+  overflow: hidden;
+}
+
+.team-member-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover .team-member-image img {
+  transform: scale(1.05);
+}
+
+.team-member-info {
+  padding: 20px;
+}
+
+.team-member-info h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.team-member-info .position {
+  color: #3ec3e9;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.team-member-info p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #505d6b;
+  margin-bottom: 15px;
+}
+
+.linkedin-link {
+  color: #0077b5;
+  font-size: 18px;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .mission-block, .vision-block {
+      width: 100%;
+      margin-bottom: 30px;
+  }
+
+  .timeline-item {
+      width: 100%;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+  }
+
+  .timeline:before {
+      left: 20px;
+  }
+
+  .facilities-content {
+      flex-direction: column;
+  }
+
+  .facilities-column {
+      width: 100%;
+      margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-hero h1 {
+      font-size: 28px;
+  }
+
+  section h2 {
+      font-size: 26px;
+  }
+
+  .timeline-year {
+      font-size: 24px;
+  }
+
+  .award-item {
+      padding: 20px;
+  }
+} 
+
+
+/* Contact Hero Section */
+.contact-hero-section {
+  background: linear-gradient(to right, #2C1D6D, #3D2E8F);
+  padding: 80px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.contact-hero-section h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.contact-hero-section p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+  padding: 60px 0;
+  background-color: #f9f9fb;
+}
+
+.contact-form-section .card {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form-section .form-label {
+  font-weight: 600;
+  color: #2C1D6D;
+}
+
+.contact-form-section .form-control {
+  border-radius: 8px;
+  border: 1px solid #eaabe9;
+  padding: 10px 14px;
+  font-size: 15px;
+  box-shadow: none;
+}
+
+.contact-form-section .form-control:focus {
+  border-color: #3D2E8F;
+  box-shadow: 0 0 0 0.2rem rgba(61, 46, 143, 0.15);
+}
+
+.contact-form-section .btn-primary {
+  background-color: #3D2E8F;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 30px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form-section .btn-primary:hover {
+  background-color: #5a45b3;
+}
+
+/* Contact Info */
+.contact-form-section h3 {
+  color: #2C1D6D;
+  margin-bottom: 20px;
+}
+
+.contact-form-section p {
+  color: #555;
+  font-size: 15px;
+}
+
+.contact-form-section a {
+  color: #3D2E8F;
+}
+
+.contact-form-section a:hover {
+  text-decoration: underline;
+}
+
+/* Map Styling */
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+.map-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* CONTACT PAGE STYLES */
+
+.contact-hero-section {
+  background: linear-gradient(to right, #2C1D6D, #3D2E8F);
+  padding: 80px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.contact-hero-section h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.contact-hero-section p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-form-section {
+  padding: 60px 0;
+  background-color: #f9f9fb;
+}
+
+.contact-form-section h3 {
+  color: #2C1D6D;
+  margin-bottom: 20px;
+}
+
+.contact-form-section p,
+.contact-form-section a {
+  color: #555;
+  font-size: 15px;
+}
+
+.contact-form-section .wpcf7 input[type="text"],
+.contact-form-section .wpcf7 input[type="email"],
+.contact-form-section .wpcf7 textarea {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 15px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.contact-form-section .wpcf7 input[type="submit"] {
+  background-color: #3D2E8F;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 30px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form-section .wpcf7 input[type="submit"]:hover {
+  background-color: #5a45b3;
+}
+
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.map-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+
+.solutions-hero-section {
+  background: linear-gradient(to right, #2C1D6D, #3D2E8F);
+  padding: 80px 0;
+}
+
+.solutions-listing h5.card-title {
+  color: #2C1D6D;
+  font-weight: 600;
+}
+
+
+
+.solution-request-hero {
+  background: linear-gradient(to right, #2C1D6D, #3D2E8F);
+  padding: 80px 20px;
+}
+
+form .form-control {
+  border-radius: 0.375rem;
+  box-shadow: none;
+}
+
+
+
+/* Footer layout */
+.itsulu-footer {
+  background-color: #000 !important; /* Pure black */
+  color: #f8f9fa !important;
+  padding: 60px 0 30px;
+  font-size: 15px;
+}
+
+.itsulu-footer .container .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.itsulu-footer .col-md-4 {
+  flex: 1 1 30%;
+  min-width: 250px;
+  text-align: left;
+}
+
+/* Footer widgets & text */
+.itsulu-footer .widget {
+  margin-bottom: 20px;
+}
+
+.itsulu-footer .widget-title {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #f8f9fa;
+  text-align: left;
+}
+
+/* Footer links */
+.itsulu-footer a {
+  color: #f8f9fa !important;
+  text-decoration: none;
+}
+
+.itsulu-footer a:hover {
+  color: var(--primary-hover) !important;
+}
+
+/* Footer logo */
+.footer-logo img {
+  max-width: 160px;
+  margin-bottom: 1rem;
+}
+
+/* Social icons */
+.footer-social {
+  margin-top: 20px;
+}
+
+.footer-social a {
+  font-size: 1.3rem;
+  margin-right: 15px;
+  color: #f8f9fa;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--primary);
+}
+
+/* Bottom footer bar */
+.mil-footer-bottom {
+  background-color: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 0.9rem;
+}
+
+.mil-footer-bottom p {
+  margin: 0;
+}
+
+
+.itsulu-footer .widget-title {
+  padding-left: 0 !important;
+}
+
+
+
+/* === SERVICES SECTION STYLING === */
+
+#services .card {
+  border-radius: 12px !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+#services .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+#services .card-body {
+  padding: 1.5rem !important;
+  text-align: center;
+}
+
+#services .card-body i {
+  font-size: 3rem;
+  color: #6a5acd;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+#services .card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2C1D6D;
+  margin-bottom: 0.5rem;
+}
+
+
+#services .card-text {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+#services .btn-outline-primary {
+  border-color: #3D2E8F;
+  color: #3D2E8F;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+#services .btn-outline-primary:hover {
+  background-color: #3D2E8F;
+  color: #fff;
+}
+
+#services .card-img-top {
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+
+
+
+/* Ensure Elementor template section has no extra spacing */
+.elementor-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Optional: Adjust container spacing */
+.container {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* HERO SECTION */
+.hero-section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    margin-top: -116px; /* Offset for top header + navbar */
+}
+
+.hero-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    min-height: 90vh; /* Added to restore substantial height */
+    /* Consider a min-height or height if needed, e.g., height: 75vh; if you want the container to be 3/4 of viewport height */
+}
+
+.hero-slider-column {
+    flex: 0 0 75%;
+    position: relative;
+}
+
+.hero-slider-column .hero-slider,
+.hero-slider-column .hero-slide {
+    height: 100vh;
+    width: 100%;
+}
+
+
+.hero-content-column {
+    flex: 0 0 25%; /* Takes 25% of the width */
+    background-color: #f0f0f0; /* Example background, change as needed */
+    display: flex;
+    align-items: center; /* Vertically center content in this column */
+    justify-content: center; /* Horizontally center content */
+}
+
+.hero-auxiliary-content {
+    text-align: center;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+/* Scroll Indicator Positioning */
+.hero-section {
+    position: relative; /* Ensure this is set, might be redundant if already set elsewhere */
+}
+
+.scroll-indicator {
+    position: absolute !important; /* Use !important to override if needed, ideally refactor hero.css */
+    bottom: 80px; /* Increased to move it up */
+    left: 37.5%; /* Center of the 75% left column */
+    transform: translateX(-50%);
+    z-index: 10;
+    color: #fff; /* Adjust color if necessary */
+    font-size: 1.5rem; /* Adjust size if necessary */
+    /* Remove or comment out any conflicting old positioning styles if this doesn't work */
+}
+
+/* Styles for the hero auxiliary content area & buttons */
+.hero-auxiliary-content h4 {
+    margin-bottom: 1rem; /* More space below title */
+    font-weight: bold;
+}
+
+.hero-auxiliary-content .content-area p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.hero-auxiliary-content .btn {
+    padding: 0.75rem 1rem; /* Larger padding */
+    border-radius: 50px;   /* Rounded pill shape */
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: none; /* Remove default border if any, as we control bg */
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    display: block; /* Ensure it takes full width if not already via btn-block */
+    width: 100%;
+    margin-bottom: 0.75rem; /* Space between buttons */
+}
+
+.hero-auxiliary-content .btn:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+.hero-auxiliary-content .newsletter-form input[type="email"] {
+    border-radius: 50px; /* Match button radius */
+    padding: 0.75rem 1rem; /* Match button padding */
+    text-align: center;
+}
+
+/* Newsletter messages styling */
+.newsletter-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+.newsletter-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.newsletter-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

@@ -1,0 +1,84 @@
+/**
+ * Header and Logo Adjustments
+ */
+
+/* Direct and specific logo styling that will work regardless of theme structure */
+.site-logo, 
+.custom-logo-link,
+.custom-logo,
+.site-header .site-logo,
+.site-header .custom-logo-link,
+.navbar-brand,
+.navbar .custom-logo-link,
+#masthead .custom-logo-link,
+header .custom-logo-link {
+    border-radius: 8px !important; /* Make logo edges slightly rounded */
+    overflow: hidden !important; /* Ensure rounded corners work on the image */
+    padding-left: 50px; /* Remove !important so media queries can override */
+}
+
+.custom-logo {
+    max-height: 60px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    /* Push logo right on all mobile pages - using more specific selectors */
+    .site-logo, 
+    .custom-logo-link,
+    .custom-logo,
+    .site-header .site-logo,
+    .site-header .custom-logo-link,
+    .navbar-brand,
+    .navbar .custom-logo-link,
+    #masthead .custom-logo-link,
+    header .custom-logo-link {
+        padding-left: 50px; /* Mobile specific padding, no !important */
+    }
+    
+    .custom-logo {
+        max-height: 45px; /* Slightly smaller on mobile */
+    }
+    
+    /* Reduce the navbar-hero spacing for mobile only */
+    #hero-section {
+        margin-top: -50px !important; /* Further reduce margin on mobile */
+    }
+    
+    /* Confirm stats card is hidden on mobile */
+    .quick-stats {
+        display: none !important;
+    }
+    
+    .navbar-brand {
+        margin-left: 0 !important; /* Override margin-left for mobile */
+    }
+
+    .navbar .navbar-brand,
+    .navbar .navbar-brand img {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+}
+
+/* For extra small devices */
+@media (max-width: 576px) {
+    .site-logo,
+    .custom-logo-link {
+        /* Remove margin-left to avoid double shifting */
+        margin-left: 0;
+    }
+    
+    .custom-logo {
+        max-height: 40px; /* Even smaller on very small screens */
+    }
+}
+
+/* For large screens, keep the current navbar-hero spacing */
+@media (min-width: 769px) {
+    #hero-section {
+        margin-top: -55px; /* Keep as is for desktop */
+    }
+}
